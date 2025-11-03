@@ -1,0 +1,125 @@
+{
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "geminiApiKey",
+      "description": "Gemini API Key for cci_agent_via_gemini_client (if required).",
+      "password": true
+    },
+    {
+      "type": "promptString",
+      "id": "targetApiKey",
+      "description": "API Key for other remote MCP servers (optional).",
+      "password": true
+    }
+  ],
+  "mcpServers": {
+    "cci_agent_via_gemini_client": {
+      "type": "http",
+      "description": "Local CCI Agent via Gemini Client - FastAPI MCP Service",
+      "url": "http://localhost:8001",
+      "capabilities": {
+        "tools": {
+          "listChanged": true
+        },
+        "resources": {},
+        "prompts": {}
+      },
+      "timeout": 30000
+    },
+    "canva_mcp_server": {
+      "type": "https",
+      "url": "https://mcp.canva.com/mcp",
+      "description": "Remote Canva MCP server for security testing",
+      "headers": {
+        "Authorization": "Bearer ${input:targetApiKey}"
+      },
+      "capabilities": {
+        "tools": {
+          "listChanged": true
+        }
+      }
+    },
+    "linear_mcp_server": {
+      "type": "https",
+      "url": "https://mcp.linear.app/sse",
+      "description": "Linear MCP server - Project management and issue tracking",
+      "capabilities": {
+        "tools": {
+          "listChanged": true
+        }
+      }
+    },
+    "asana_mcp_server": {
+      "type": "https",
+      "url": "https://mcp.asana.com/sse",
+      "description": "Asana MCP server - Work management platform",
+      "capabilities": {
+        "tools": {
+          "listChanged": true
+        }
+      }
+    },
+    "atlassian_mcp_server": {
+      "type": "https",
+      "url": "https://mcp.atlassian.com/v1/sse",
+      "description": "Atlassian MCP server - Jira, Confluence, etc.",
+      "capabilities": {
+        "tools": {
+          "listChanged": true
+        }
+      }
+    },
+    "intercom_mcp_server": {
+      "type": "https",
+      "url": "https://mcp.intercom.com/sse",
+      "description": "Intercom MCP server - Customer messaging platform",
+      "capabilities": {
+        "tools": {
+          "listChanged": true
+        }
+      }
+    },
+    "notion_mcp_server": {
+      "type": "https",
+      "url": "https://mcp.notion.com/mcp",
+      "description": "Notion MCP server - Workspace and documentation",
+      "capabilities": {
+        "tools": {
+          "listChanged": true
+        }
+      }
+    },
+    "paypal_mcp_server": {
+      "type": "https",
+      "url": "https://mcp.paypal.com/sse",
+      "description": "PayPal MCP server - Payment processing",
+      "capabilities": {
+        "tools": {
+          "listChanged": true
+        }
+      }
+    },
+    "sentry_mcp_server": {
+      "type": "https",
+      "url": "https://mcp.sentry.dev/sse",
+      "description": "Sentry MCP server - Error tracking and monitoring",
+      "capabilities": {
+        "tools": {
+          "listChanged": true
+        }
+      }
+    },
+    "squareup_mcp_server": {
+      "type": "https",
+      "url": "https://mcp.squareup.com/sse",
+      "description": "Square MCP server - Payment and commerce platform",
+      "capabilities": {
+        "tools": {
+          "listChanged": true
+        }
+      }
+    }
+  }
+}
+
